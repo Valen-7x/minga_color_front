@@ -38,8 +38,8 @@ const NavBar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
-                className="flex items-center m-[21px] w-auto h-[32px] md:h-[70px] md:mt-[27px]"
-                src="/logo.png"
+                className="flex items-center m-[21px] w-auto h-[32px] md:h-[40px] md:mt-[27px]"
+                src="/Logo 2 1.png"
                 alt="Logo"
               />
             </div>
