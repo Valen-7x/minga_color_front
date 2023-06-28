@@ -12,7 +12,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="flex items-center w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto]">
+    <nav className="flex items-center w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-10">
       <div className="max-w-screen mx-auto px-4 w-[100%]">
         <div className="flex items-center justify-between h-[100%] w-[100%]">
           <div className="flex w-[100%] ">
@@ -21,7 +21,7 @@ const NavBar = () => {
               className="flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-white transition duration-300 ease-in-out"
             >
               <svg
-                className="flex items-center m-[21px] md:mt-[27px] md:w-[57px] md:h-[55px]"
+                className="flex items-center m-[21px] md:mt-[27px] md:w-[57px] md:h-[55px] "
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
