@@ -22,7 +22,7 @@ export default function Carousel() {
   }, [images.length]);
 
   return (
-    <div className='flex flex-wrap flex-row self-center justify-evenly w-[50%] xl:flex-wrap'>
+    <div className='flex flex-wrap flex-row self-center justify-evenly w-[50%] xl:flex-wrap  before:bg-black/50'>
       <img className='hidden flex-wrap xl:flex xl:items-center xl:w-[440px] xl:h-[550px]'
         src={images[currentIndex]}
         alt={`Imagen ${currentIndex + 1}`}
