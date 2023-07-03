@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-
+//useState y useEffect de React. Estas funciones son hooks que
+// permiten manejar el estado y los efectos secundarios en componentes funcionales de React.
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([
@@ -22,11 +23,13 @@ export default function Carousel() {
   }, [images.length]);
 
   return (
-    <div className='flex flex-wrap flex-row self-center justify-evenly w-[50%] xl:flex-wrap before:bg-black/50'>
-      <img className='hidden flex-wrap xl:flex xl:items-center xl:w-[440px] xl:h-[550px]'
+    <div className='flex flex-wrap flex-row self-center justify-evenly w-[50%] lg:flex-wrap before:bg-black/50'>
+      <img className='hidden flex-wrap lg:flex lg:items-center lg:w-[440px] lg:h-[550px]'
         src={images[currentIndex]}
         alt={`Imagen ${currentIndex + 1}`}
       />
     </div>
   );
 }
+
+//repasar use effects y use state
