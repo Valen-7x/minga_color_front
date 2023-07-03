@@ -3,7 +3,6 @@ import NavBar from "../componentes/NavBar"
 import Footer from "../componentes/Footer"
 import { Outlet } from 'react-router-dom'
 
-
 export default function Main(){
   return (
     <div className="h-screen w-full bg-black p-0">
