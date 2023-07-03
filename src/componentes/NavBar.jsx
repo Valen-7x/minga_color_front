@@ -21,8 +21,8 @@ const NavBar = () => {
               className="flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-white transition duration-300 ease-in-out"
             >
               <svg
-                className="flex items-center m-[21px] md:mt-[27px] md:w-[57px] md:h-[55px]"
-                stroke="currentColor"
+                className="flex items-center m-[21px] md:mt-[27px] md:w-[57px] md:h-[55px] "
+            stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -38,8 +38,8 @@ const NavBar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
-                className="flex items-center m-[21px] w-auto h-[32px] md:h-[70px] md:mt-[27px]"
-                src="/logo.png"
+                className="flex items-center m-[21px] w-auto h-[32px] md:h-[40px] md:mt-[27px]"
+                src="/Logo 2 1.png"
                 alt="Logo"
               />
             </div>
@@ -84,3 +84,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

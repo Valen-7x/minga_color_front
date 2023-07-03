@@ -11,4 +11,4 @@ export default function Main({children}){
     <Footer/>
     </div> 
  )
-}
+
