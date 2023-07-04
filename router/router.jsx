@@ -5,6 +5,7 @@ import SignUp from "../src/componentes/SignUp";
 import ChapterForm from "../src/componentes/ChapterForm";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
+import MangaForm from "../src/componentes/mangaForm";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,16 @@ const router = createBrowserRouter([
       {
         path: "/ChapterForm",
         element: <ChapterForm />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/MangaForm",
+        element: <MangaForm />,
       },
     ],
   },
