@@ -11,7 +11,7 @@ export default function MangaForm() {
 <input type="text" placeholder='Insert description' className='sm:w-[50%] lg:hidden bg-transparent border-b-[1px] py-2'/>
 <button className='text-[black] bg-[#FFF] rounded-[5px] h-[2.5rem] sm:w-[50%] lg:hidden mt-[2rem] font-bold'>Send</button>
     <div id='Form' className='hidden lg:flex lg:flex-col lg:w-[50%] lg:items-center lg:h-[65vh] lg:justify-center lg:block'>
-<h1 className='lg:block  text-[#FFF] text-[1.8rem] hidden mt-[2rem]'>New chapter</h1>
+<h1 className='lg:block  text-[#FFF] text-[1.8rem] hidden mt-[2rem]'>New Manga</h1>
 <form  className='flex flex-col w-[40%] gap-5 mt-[2rem]'>
     <input type="text" placeholder='Insert title' className=' bg-transparent border-b-[1px] py-2 text-[#FFFF] placeholder-[white]'/>
     <select className=' bg-transparent border-b-[1px] py-2 text-[white]' name="" id=""><option value="category">Insert category</option></select>
