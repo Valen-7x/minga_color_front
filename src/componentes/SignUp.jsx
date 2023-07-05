@@ -1,4 +1,52 @@
+import { useRef, useState } from "react";
+import { api, apiUrl, endpoints } from "../../utils/api.js";
+import { Link as Anchor, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
+
 export default function SignUp() {
+  let navigate = useNavigate();
+
+  const email = useRef();
+  const photo = useRef();
+  const password = useRef();
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    let inputEmail = email.current.value;
+    let inputPhoto = photo.current.value;
+    let inputPassword = password.current.value;
+
+    let data = {
+      email: inputEmail,
+      photo: inputPhoto,
+      password: inputPassword,
+    };
+    console.log(data);
+
+    axios
+      .post("http://localhost:8000/api/users/register", data)
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/SignIn");
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.response.data.message,
+        });
+        console.log(err.message);
+      });
+  };
   return (
     <div>
       <nav></nav>
@@ -22,7 +70,6 @@ export default function SignUp() {
             read manga.
           </p>
 
-
           <form className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[100vw] md:w-[29vw]">
             <div className="mb-4 flex flex-col w-full">
               <label
@@ -32,8 +79,10 @@ export default function SignUp() {
                 Email
               </label>
               <input
+                ref={email}
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none"
                 id="email"
+                required
                 type="email"
                 placeholder="Email"
               />
@@ -46,8 +95,10 @@ export default function SignUp() {
                 Photo
               </label>
               <input
+                ref={photo}
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none "
                 id="photo"
+                required
                 type="text"
                 placeholder="Url"
               />
@@ -60,28 +111,27 @@ export default function SignUp() {
                 Password
               </label>
               <input
+                ref={password}
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none "
+                required
                 id="password"
                 type="password"
                 placeholder="Password"
               />
             </div>
             <div>
-            <div className="mb-4 flex items-center">
-          <input
-            type="checkbox"
-            id="notification"
-            className="mr-2"
-          />
-          <label htmlFor="notification" className="text-sm text-gray-700">
-            Send notification to my email
-          </label>
-        </div>
+              <div className="mb-4 flex items-center">
+                <input type="checkbox" id="notification" className="mr-2" />
+                <label htmlFor="notification" className="text-sm text-gray-700">
+                  Send notification to my email
+                </label>
+              </div>
             </div>
             <div className="flex items-center justify-between">
               <button
+                onClick={handleFormSubmit}
                 className="w-[50vh] bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
+                type="submit"
               >
                 Sign Up
               </button>
@@ -89,16 +139,19 @@ export default function SignUp() {
             <div className="flex items-center justify-between">
               <button
                 className="w-[50vh] flex align-center justify-evenly mt-[1rem] bg-white hover:bg-blue-700 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
+                type="submit"
               >
-               <img src="public\Google.png" alt="" /> Sign Up With Google
+                <img src="public\Google.png" alt="" /> Sign Up With Google
               </button>
             </div>
             <div className="mt-4 flex">
-          <p className="text-sm text-gray-700">
-            Already have an account? <span className="text-red-500">Log in</span>
-          </p>
-        </div>
+              <p className="text-sm text-gray-700">
+                Already have an account?{" "}
+                <Anchor to="/SignIn" className="text-red-500">
+                  Log in
+                </Anchor>
+              </p>
+            </div>
           </form>
         </div>
       </body>

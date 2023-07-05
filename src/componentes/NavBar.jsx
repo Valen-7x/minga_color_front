@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import { Link as Anchor } from 'react-router-dom';
+
+let user = JSON.parse(localStorage.getItem("user"))
+  console.log(localStorage.getItem("user"));
+  let role = user?.role
+  console.log(user?.role)
+  console.log(user)
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +19,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="flex items-center w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20">
+    <nav className="flex items-center w-100vw w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
       <div className="max-w-screen mx-auto px-4 w-[100%] z-10">
         <div className="flex items-center justify-between h-[100%] w-[100%] z-20">
           <div className="flex w-[100%] ">
@@ -79,16 +86,22 @@ const NavBar = () => {
           </button>
         </div>
         <div className='text-[0.8rem] flex flex-col justify-around h-[40vh] items-start px-[2rem] text-[#FFF] lg:text-[1.5rem]'>
-        <button><h2>Home</h2></button>
-        <button ><h2>Mangas</h2></button>
-        <button ><h2>My mangas</h2></button>
-        <button><h2>Favourites</h2></button>
-        <button><h2>Logout</h2></button>  
+        <Anchor className='hover:bg-black/50 p-2'>Home</Anchor>
+        <Anchor  className='hover:bg-black/50 p-2'>Mangas</Anchor>
+        <Anchor className='hover:bg-black/50 p-2'>Favourites</Anchor>
+        <Anchor to="/:manga_id/chapther-form" className='hover:bg-black/50 p-2'>Edit Chapters</Anchor>
+        <Anchor to="/mangas" className='hover:bg-black/50 p-2'>New Manga</Anchor>
+        <Anchor to="/signup" className='hover:bg-black/50 p-2'>Log Out </Anchor> 
+         {role == 1 || role == 2 ? (
+              <>                 
+              <Anchor to="/manga-form" > <p className='hover:bg-black/50 p-2'>+ New Manga</p></Anchor>                 
+              <Anchor to="/chapter-form"><p className='hover:bg-black/50 p-2' >+ New Chapter</p></Anchor>
+              </>             
+            ) : ("") }
         </div>
         
       </div>
     </nav>
   );
 };
-
 export default NavBar;

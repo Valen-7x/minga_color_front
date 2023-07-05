@@ -2,44 +2,46 @@ import { createBrowserRouter } from "react-router-dom";
 
 import SignIn from "../src/componentes/SignIn";
 import SignUp from "../src/componentes/SignUp";
-import ChapterForm from "../src/componentes/ChapterForm";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
-
+import NotAllowed from "../src/componentes/NotAllowed";
+import NotAllowedProtected from "./NotAllowedProtected";
+import ChapterForm from "../src/componentes/ChapterForm";
+import MangaForm from "../src/componentes/MangaForm";
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: "/",
-        element: <App />,
-      },
-    ],
-  },
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: "/signup",
-        element: <SignUp />,
-      },
-    ],
-  },
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: "/ChapterForm",
-        element: <ChapterForm />,
-      },
-    ],
-  },
-]);
+    {
+        path:"/",
+        element:<Main/>,
+        children:[            
+            {
+                path:'/',
+                element: <App/>
+            },
+            {
+                path: "/not-allowed",
+                element:  <NotAllowed/> ,
+              },
+              {
+                path:"/:manga_id/chapther-form",
+                element: <ChapterForm/>,
+              },
+              {
+                path:"/mangas",
+                element: <MangaForm/>
+              }
+        ]
+    },  
+          
+        {
+            path:'/signup',
+            element: <SignUp/>
+        },
+        {
+            path: "/SignIn",
+            element: <SignIn />,
+        
+          },
+         
 
-export default router;
-
-
-
+])
+export default router
