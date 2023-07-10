@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { api, apiUrl, endpoints } from '../../utils/api.js';
 import { Link as Anchor, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import axios from 'axios';
 
 export default function SigninForm() {
@@ -19,8 +20,17 @@ export default function SigninForm() {
     try {
       let {data} = await api.post(apiUrl+ endpoints.signin, datos);
       console.log(data);
-       
-        alert('User signed in!');
+     
+        
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: data.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        
+      
         
         let token = JSON.stringify(data.response.token)
         localStorage.setItem('token', token);
@@ -30,7 +40,13 @@ export default function SigninForm() {
     } catch (error) {
 
       console.log(error)
-       alert('Error occurred!');
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: error.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       
     }
     /* axios.post("http://localhost:8000/api/users/Signin",data)

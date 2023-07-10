@@ -1,5 +1,6 @@
 import React, { Children } from 'react';
 import { Navigate } from 'react-router';
+import router from './router';
 
 const NotAllowedProtected = ({children}) => {
     let user=JSON.parse(localStorage.getItem("user"))
