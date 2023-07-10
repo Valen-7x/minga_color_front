@@ -7,7 +7,10 @@ import NotAllowed from "../src/componentes/NotAllowed";
 import NotAllowedProtected from "./NotAllowedProtected";
 import ChapterForm from "../src/componentes/ChapterForm";
 import MangaForm from "../src/componentes/MangaForm";
+
+import Manga from "../src/componentes/mangas";
 import ProtectedLogin from "./ProtectedLogin";
+
 const router = createBrowserRouter([
     {
         path:"/",
@@ -27,10 +30,19 @@ const router = createBrowserRouter([
               },
               {
                 path:"/mangas",
+
+                element: <MangaForm/>
+              },
+              {
+                path:"/manga",
+                element: <Manga/>
+              }    
+
                 element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
               }
+
         ]
-    },  
+    },
           
         {
             path:'/signup',
@@ -41,7 +53,6 @@ const router = createBrowserRouter([
             element: (<ProtectedLogin><SignIn /></ProtectedLogin>),
         
           },
-         
-
+          
 ])
 export default router

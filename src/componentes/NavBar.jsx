@@ -33,8 +33,10 @@ function NavBar() {
   };
 
   return (
-    <nav className="flex items-center w-screen h-[auto] bg-[black] justify-between  md:h-[auto] relative z-20 ">
-      <div className="max-w-screen mx-auto px-4 w-[100%] z-10">
+
+    <nav className="flex items-center w-100vw w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
+      <div className="max-w-screen mx-auto px-4 w-[100%] z-10 bg-black">
+
         <div className="flex items-center justify-between h-[100%] w-[100%] z-20">
           <div className="flex w-[100%] ">
             <button
@@ -94,6 +96,8 @@ function NavBar() {
             </svg>
           </button>
         </div>
+
+        
         <div className='text-[0.8rem] sm:text-[1.2rem] sm:mt-[2.5rem] flex flex-col justify-around h-[40vh] items-start px-[1rem] text-[#FFF] lg:text-[1.5rem]'>
           <div className='flex flex-col gap-3 mb-4'>
             {token && <img src={photoUser} alt="photo_user" className='w-[25px] '/>}
@@ -109,7 +113,6 @@ function NavBar() {
           {token && <Anchor to="/mangas" className='hover:bg-black/50 p-2'>New Manga</Anchor>}
           {token && <Anchor onClick={logout} className='hover:bg-black/50 p-2'>Log Out </Anchor>}
           </div>
-
       </div>
     </nav>
   );
