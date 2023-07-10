@@ -33,6 +33,10 @@ const router = createBrowserRouter([
 
                  element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
               },
+              {
+                path:"/not-allow",
+                element:<NotAllowed/>
+              }
               
 ]
     },
