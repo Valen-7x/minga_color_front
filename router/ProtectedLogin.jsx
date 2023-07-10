@@ -1,12 +1,12 @@
 import React, { Children } from 'react';
 import { Navigate } from 'react-router';
 
-const NotAllowedProtected = ({children}) => {
+const protectedLogin = ({children}) => {
     let user=JSON.parse(localStorage.getItem("user"))
-  if(user.role==1 || user.role==2){
+  if(!user){
     return children
   }
-  return <Navigate to={"/not-allow"}/>
+  return <Navigate to={"/not-allow"} replace/>
 }
 
-export default NotAllowedProtected;
+export default protectedLogin;

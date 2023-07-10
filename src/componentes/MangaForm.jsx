@@ -56,7 +56,7 @@ const MangaForm = () => {
   let headers = { headers: { Authorization: `Bearer ${token}` } };
 
   return (
-    <div className="h-auto w-full p-0 bg-[black]">
+    <div className="h-auto w-screen p-0 bg-[black]">
       <div className="w-[full] h-screen flex flex-col lg:flex-row px-[4rem] gap-3 sm:items-center">
         <h1 className="text-[#FFF] lg:hidden text-[1.7rem] mb-[3rem] mt-[4rem]">
           New Manga
