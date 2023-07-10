@@ -33,7 +33,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="flex items-center w-100vw w-full h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
+    <nav className="flex items-center w-screen h-[auto] bg-[black] justify-between  md:h-[auto] relative z-20 ">
       <div className="max-w-screen mx-auto px-4 w-[100%] z-10">
         <div className="flex items-center justify-between h-[100%] w-[100%] z-20">
           <div className="flex w-[100%] ">
@@ -71,7 +71,7 @@ function NavBar() {
         </div>
       </div>
       <div
-        className={`w-[45%] lg:w-[32%] fixed left-0 top-0 h-screen w-1/2 bg-gray-900 z-10 transition-all duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`w-[50%] md:w-[35%] lg:w-[32%] fixed left-0 top-0 h-screen bg-gray-900 z-10 transition-all duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Add your drawer content here */}
@@ -94,9 +94,9 @@ function NavBar() {
             </svg>
           </button>
         </div>
-        <div className='text-[0.8rem] flex flex-col justify-around h-[40vh] items-start px-[2rem] text-[#FFF] lg:text-[1.5rem]'>
-          <div className='flex justify-between mb-4'>
-            {token && <img src={photoUser} alt="" width="50" />}
+        <div className='text-[0.8rem] sm:text-[1.2rem] sm:mt-[2.5rem] flex flex-col justify-around h-[40vh] items-start px-[1rem] text-[#FFF] lg:text-[1.5rem]'>
+          <div className='flex flex-col gap-3 mb-4'>
+            {token && <img src={photoUser} alt="photo_user" className='w-[25px] '/>}
             {token && <p>{userEmail}</p>}
             
           </div>
@@ -108,13 +108,7 @@ function NavBar() {
           {token && <Anchor to="/:manga_id/chapther-form" className='hover:bg-black/50 p-2'>Edit Chapters</Anchor>}
           {token && <Anchor to="/mangas" className='hover:bg-black/50 p-2'>New Manga</Anchor>}
           {token && <Anchor onClick={logout} className='hover:bg-black/50 p-2'>Log Out </Anchor>}
-          {role == 1 || role == 2 ? (
-            <>
-              <Anchor to="/manga-form"> <p className='hover:bg-black/50 p-2'>+ New Manga</p></Anchor>
-              <Anchor to="/chapter-form"><p className='hover:bg-black/50 p-2'>+ New Chapter</p></Anchor>
-            </>
-          ) : ("")}
-        </div>
+          </div>
 
       </div>
     </nav>

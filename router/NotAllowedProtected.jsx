@@ -7,7 +7,7 @@ const NotAllowedProtected = ({children}) => {
   if(user.role==1 || user.role==2){
     return children
   }
-  return <Navigate to={"/not-allowed"}/>
+  return <Navigate to={"/not-allow"}/>
 }
 
 export default NotAllowedProtected;
