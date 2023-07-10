@@ -21,27 +21,20 @@ const router = createBrowserRouter([
                 element: <App/>
             },
             {
-                path: "/not-allow",
-                element:  <NotAllowed/> ,
+                path: "/Mangas",
+                element: <Manga/>
               },
               {
                 path:"/:manga_id/chapther-form",
                 element: (<NotAllowedProtected><ChapterForm/></NotAllowedProtected>),
               },
               {
-                path:"/mangas",
+                path:"/mangaForm",
 
-                element: <MangaForm/>
+                 element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
               },
-              {
-                path:"/manga",
-                element: <Manga/>
-              }    
-
-                element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
-              }
-
-        ]
+              
+]
     },
           
         {
