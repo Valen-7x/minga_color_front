@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import SignIn from "../src/componentes/SignIn";
 import SignUp from "../src/componentes/SignUp";
 import Main from "../src/layouts/Main";
@@ -8,7 +7,10 @@ import NotAllowed from "../src/componentes/NotAllowed";
 import NotAllowedProtected from "./NotAllowedProtected";
 import ChapterForm from "../src/componentes/ChapterForm";
 import MangaForm from "../src/componentes/MangaForm";
+
 import Manga from "../src/componentes/mangas";
+import ProtectedLogin from "./ProtectedLogin";
+
 const router = createBrowserRouter([
     {
         path:"/",
@@ -19,21 +21,26 @@ const router = createBrowserRouter([
                 element: <App/>
             },
             {
-                path: "/not-allowed",
+                path: "/not-allow",
                 element:  <NotAllowed/> ,
               },
               {
                 path:"/:manga_id/chapther-form",
-                element: <ChapterForm/>,
+                element: (<NotAllowedProtected><ChapterForm/></NotAllowedProtected>),
               },
               {
                 path:"/mangas",
+
                 element: <MangaForm/>
               },
               {
                 path:"/manga",
                 element: <Manga/>
               }    
+
+                element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
+              }
+
         ]
     },
           
@@ -43,7 +50,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/SignIn",
-            element: <SignIn />,
+            element: (<ProtectedLogin><SignIn /></ProtectedLogin>),
         
           },
           

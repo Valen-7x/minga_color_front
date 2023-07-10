@@ -7,6 +7,7 @@ export default function Main(){
   return (
     <div className="h-screen w-screen bg-black p-0 overflow-x-hidden">
     <NavBar/>
+
     <Outlet/> 
     <Footer/>
     </div> 
