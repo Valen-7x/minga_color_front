@@ -45,7 +45,7 @@ const router = createBrowserRouter([
                 element:(<ProtectedLoger><MangaDetail/></ProtectedLoger>),
               },
               {
-                path:"/chapter/:id/:page",
+                path:"/chapters/:id/:page",
                 element:(<ProtectedLoger><Chapters/></ProtectedLoger>),
               }
               
