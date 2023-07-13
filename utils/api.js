@@ -11,3 +11,4 @@ export const endpoints = {
   ChapterForm: "chapters/",
   MangaForm: "mangas/mangaC",
 };
+

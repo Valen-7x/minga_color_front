@@ -9,7 +9,7 @@ export default function Footer() {
         <p className="text-white">Home</p>
         <p className="text-white">Mangas</p>
       </div>
-      <img className="w-[3.5rem]" src="public\Logo 2 1.png" alt="logo"/>
+      <img className="w-[3.5rem]" src="/public/Logo 2 1.png" alt="logo"/>
      <div className="flex justify-center gap-5 w-[50%]">
       <div className="w-[50%] bg-white h-6 rounded-[4px]">
        <p className="">Donate</p>
