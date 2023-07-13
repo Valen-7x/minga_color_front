@@ -35,7 +35,7 @@ function NavBar() {
   return (
 
     <nav className="flex items-center w-100vw w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
-      <div className="max-w-screen mx-auto px-4 w-[100%] z-10 bg-black">
+      <div className="max-w-screen mx-auto px-4 w-[100%] z-10 border-solid border-b-[0.2px] border-[#ffffff30]">
 
         <div className="flex items-center justify-between h-[100%] w-[100%] z-20">
           <div className="flex w-[100%] ">
