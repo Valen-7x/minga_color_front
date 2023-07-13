@@ -148,7 +148,7 @@ export default function SignUp() {
               <p className="text-sm text-gray-700">
                 Already have an account?{" "}
                 <Anchor to="/SignIn" className="text-red-500">
-                  Log in!
+                  Log in
                 </Anchor>
               </p>
             </div>
