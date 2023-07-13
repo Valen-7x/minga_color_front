@@ -107,10 +107,10 @@ function NavBar() {
           <Anchor className='hover:bg-black/50 p-2'>Home</Anchor>
           {!token && <Anchor to="/signin" className='hover:bg-black/50 p-2'>Login</Anchor>}
           {!token && <Anchor to="/signup" className='hover:bg-black/50 p-2'>Register</Anchor>}
-          {token && <Anchor to="/not-allowed" className='hover:bg-black/50 p-2'>Mangas</Anchor>}
+          {token && <Anchor to="/manga" className='hover:bg-black/50 p-2'>Mangas</Anchor>}
           {token && <Anchor className='hover:bg-black/50 p-2'>Favourites</Anchor>}
           {token && <Anchor to="/:manga_id/chapther-form" className='hover:bg-black/50 p-2'>Edit Chapters</Anchor>}
-          {token && <Anchor to="/mangas" className='hover:bg-black/50 p-2'>New Manga</Anchor>}
+          {token && <Anchor to="/mangasForm" className='hover:bg-black/50 p-2'>New Manga</Anchor>}
           {token && <Anchor onClick={logout} className='hover:bg-black/50 p-2'>Log Out </Anchor>}
           </div>
       </div>
