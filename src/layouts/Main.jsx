@@ -5,8 +5,9 @@ import { Outlet } from 'react-router-dom'
 
 export default function Main(){
   return (
-    <div className="h-screen w-full bg-black p-0">
+    <div className="h-screen w-screen bg-black p-0 overflow-x-hidden">
     <NavBar/>
+
     <Outlet/> 
     <Footer/>
     </div> 

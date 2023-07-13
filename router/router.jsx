@@ -1,5 +1,4 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-
+import { createBrowserRouter } from "react-router-dom";
 import SignIn from "../src/componentes/SignIn";
 import SignUp from "../src/componentes/SignUp";
 import Main from "../src/layouts/Main";
@@ -9,48 +8,59 @@ import NotAllowedProtected from "./NotAllowedProtected";
 import ChapterForm from "../src/componentes/ChapterForm";
 import MangaForm from "../src/componentes/MangaForm";
 
-let token = localStorage.getItem('token');
-
+import Manga from "../src/componentes/mangas";
+import ProtectedLogin from "./ProtectedLogin";
+import ProtectedLoger from "./ProtectedLoger";
+import MangaDetail from "../src/componentes/MangaDetail";
+import Chapters from "../src/componentes/Chapters";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: '/',
-        element: <App />
-      },
-      {
-        path: "/not-allowed",
-        element: <NotAllowed />,
-      },
-      {
-        path: "/:manga_id/chapther-form",
-        element: <ChapterForm />,
-      },
-      {
-        path: "/mangas",
-        element:  <MangaForm />
-      }
-    ]
-  },
+    {
+        path:"/",
+        element:<Main/>,
+        children:[            
+            {
+                path:'/',
+                element: <App/>
+            },
+            {
+                path: "/Mangas",
+                element: <Manga/>
+              },
+              {
+                path:"/:manga_id/chapther-form",
+                element: (<NotAllowedProtected><ChapterForm/></NotAllowedProtected>),
+              },
+              {
+                path:"/mangaForm",
 
-  {
-    path: '/signup',
-    element: !token ? <SignUp /> : <Navigate to="/not-allowed2" />
-  },
-  {
-    path: "/SignIn",
-    element: !token ? <SignIn /> : <Navigate to="/not-allowed2" />
-
-  },
-  {
-    path: "/not-allowed2",
-    element: <NotAllowed />,
-  },
-
-
-
+                 element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
+              },
+              {
+                path:"/not-allow",
+                element:<NotAllowed/>
+              },
+              {
+                path:"/manga/:id",
+                element:(<ProtectedLoger><MangaDetail/></ProtectedLoger>),
+              },
+              {
+                path:"/chapter/:id/:page",
+                element:(<ProtectedLoger><Chapters/></ProtectedLoger>),
+              }
+              
+]
+    },
+          
+        {
+            path:'/signup',
+            element: <SignUp/>
+        },
+        {
+            path: "/SignIn",
+            element: (<ProtectedLogin><SignIn /></ProtectedLogin>),
+        
+          },
+          
 ])
 export default router
