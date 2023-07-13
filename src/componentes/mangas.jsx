@@ -8,7 +8,7 @@ import {
   setPagination,
 } from "../redux/actions/mangas.js";
 import { Link } from "react-router-dom";
-
+import { LS } from '../../utils/localStorageUtils';
 const Mangas = () => {
   const dispatch = useDispatch();
   const { filters, categories, mangas, pagination } = useSelector(
@@ -22,7 +22,6 @@ const Mangas = () => {
     try {
       const { data } = await api.get(apiUrl + endpoints.read_mangas+ `?title=${title}&category=${categoriesSelected}&page=${page}`, 
         );
-
       dispatch(setMangas(data.mangas));
       dispatch(setPagination(data.pagination));
     } catch (error) {
@@ -41,22 +40,21 @@ const Mangas = () => {
   };
 
   const selectCategory = (value) => {
+    console.log(categoriesSelected);
+    console.log(value);
     let updatedCategories = [];
-
-    if (categoriesSelected.includes(value)) {
-      updatedCategories = categoriesSelected.filter(
+    if (categoriesSelected?.includes(value)) {
+      updatedCategories = categoriesSelected?.filter(
         (category) => category !== value
-      );
+      ); 
     } else {
       updatedCategories = [...categoriesSelected, value];
     }
-
     const updatedFilters = {
       ...filters,
       categoriesSelected: updatedCategories,
       page: 1,
     };
-
     dispatch(setFilters(updatedFilters));
   };
 
@@ -80,7 +78,7 @@ const Mangas = () => {
   const handleTextChange = (e) => {
     dispatch(setFilters({ ...filters, title: e.target.value, page: 1 }));
   };
-  console.log();
+  console.log(mangas);
   return (
     <div className="flex flex-col items-center flex-wrap m-[0px] min-h-screen w-screen items-center justify-center">
       <div className="flex flex-wrap gap-[70px] min-h-[40vh] justify-center items-center flex-col w-[100%]">
@@ -101,9 +99,9 @@ const Mangas = () => {
         {categories.map((category) => (
           <button
             key={category._id}
-            onClick={() => selectCategory(category._id)}
-            className={`md:p-4  hover:bg-gray-900  ${
-              categoriesSelected.includes(category._id) ? "selected" : ""
+            onClick={() => selectCategory(category?._id)}
+            className={`md:p-4   ${
+              categoriesSelected.includes(category?._id) ? "text-white" : "text-white/50"
             }`}
           >
             {category.name}
@@ -112,7 +110,7 @@ const Mangas = () => {
       </div>
       <div className="flex flex-col">
       <div className=" flex gap-4 flex-row flex-wrap justify-center pl-[4rem]">
-        {mangas.length > 0 ? (
+        {mangas?.length > 0 ? (
           mangas.map((manga, index) => (
             <div
               key={manga._id}
@@ -122,11 +120,11 @@ const Mangas = () => {
               <Link to={`/manga/${manga._id}`}>
                 <img
                   className="inline-flex flex-wrap h-[6rem] w-[6rem] md:h-[20rem] md:w-[15rem]"
-                  src={manga.cover_photo}
+                  src={manga?.cover_photo}
                   alt=""
                 />
                  <p className="text-[20px] md:text-2xl text-white text-center flex-wrap min-w-[12rem] md:min-w-[17 rem] ">
-                  {manga.title}
+                  {manga?.title}
                 </p>
               </Link>
             </div>
