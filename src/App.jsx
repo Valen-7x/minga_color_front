@@ -5,9 +5,9 @@ export function App() {
   return (
     <div className="h-auto w-screen bg-black p-0 ">
 
-     <Index/>
+<Index/>
+</div>
 
-    </div>
   );
 }
 

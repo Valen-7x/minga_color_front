@@ -12,6 +12,9 @@ import MangaDetail from "../src/componentes/MangaDetail";
 import ProtectedLoger from "./ProtectedLoger";
 import Mangas from "../src/componentes/mangas";
 import ProtectedLogin from "./ProtectedLogin";
+import ProtectedLoger from "./ProtectedLoger";
+import MangaDetail from "../src/componentes/MangaDetail";
+import Chapters from "../src/componentes/Chapters";
 
 const router = createBrowserRouter([
     {
@@ -23,32 +26,42 @@ const router = createBrowserRouter([
                 element: <App/>
             },
             {
-                path: "/not-allow",
-                element:  <NotAllowed/> ,
+                path: "/Mangas",
+                element: <Manga/>
               },
               {
                 path:"/:manga_id/chapther-form",
                 element: (<NotAllowedProtected><ChapterForm/></NotAllowedProtected>),
               },
               {
-                path:"/mangasForm",
-                element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
-             },
-             
+
+                path:"/mangaForm",
+
+                 element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
+              },
               {
-                path:"/manga",
-                element: <Mangas/>
+                path:"/not-allow",
+                element:<NotAllowed/>
+
               },
               {
                 path:"/manga/:id",
                 element:(<ProtectedLoger><MangaDetail/></ProtectedLoger>),
               },
               {
+
                 path:"/chapters/:id/:page",
                 element:(<ProtectedLoger><Chapters/></ProtectedLoger>),
               },
                 
         ]
+
+                path:"/chapter/:id/:page",
+                element:(<ProtectedLoger><Chapters/></ProtectedLoger>),
+              }
+              
+]
+
     },
           
         {
