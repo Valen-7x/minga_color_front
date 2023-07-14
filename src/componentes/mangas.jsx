@@ -11,14 +11,20 @@ import {
 import { Link } from "react-router-dom";
 import { LS } from '../../utils/localStorageUtils';
 const Mangas = () => {
+  //hook useDispatch p/ obtener la función dispatch, despachar acciones de Redux en componentes.
   const dispatch = useDispatch();
   const { filters, categories, mangas, pagination } = useSelector(
     (state) => state.mangas 
   );
+  //desestructuración del objeto devuelto por useSelector
+  //useSelector, estás seleccionando y extrayendo las propiedades específicas 
+  //(filters, categories, mangas y pagination) del estado de Redux (state.mangas)
 
   const { title, categoriesSelected, page } = filters;
   const { prev, next } = pagination;
 
+//getMangas realiza una solicitud HTTP al servidor para obtener los mangas,
+// actualiza el estado de Redux con los datos recibidos y maneja los errores si los hay.
   const getMangas = async () => {
     try {
       const { data } = await api.get(apiUrl + endpoints.read_mangas+ `?title=${title}&category=${categoriesSelected}&page=${page}`, 
@@ -29,7 +35,7 @@ const Mangas = () => {
       console.log(error);
     }
   };
-
+//traigo las categorias
   const getCategories = async () => {
     try {
       const { data } = await api.get(apiUrl + endpoints.read_categories,
@@ -39,7 +45,8 @@ const Mangas = () => {
       console.log(error);
     }
   };
-
+//actualiza las categorías seleccionadas en los filtros y
+// despacha una acción para actualizar el estado de Redux con los nuevos filtros
   const selectCategory = (value) => {
     console.log(categoriesSelected);
     console.log(value);
@@ -58,24 +65,28 @@ const Mangas = () => {
     };
     dispatch(setFilters(updatedFilters));
   };
-
+// hook useEffect para ejecutar ciertas acciones cuando se producen cambios en title,etc. 
   useEffect(() => {
     getMangas();
     getCategories();
   }, [title, categoriesSelected, page]);
 
+//se ejecuta producido un clic en un botón para ir a la página anterior
+//Verifica si la propiedad prev tiene un valor, si es asi despacha la accion setFilters
   const handlePrevPage = () => {
     if (prev) {
       dispatch(setFilters({ ...filters, page: prev }));
     }
   };
-
+//se ejecuta producido un clic en un botón para ir a la página siguiente.
+//Verifica si la propiedad next tiene un valor, si es asi despacha la accion setFilters
   const handleNextPage = () => {
     if (next) {
       dispatch(setFilters({ ...filters, page: next }));
     }
   };
-
+// Esta función se ejecuta cuando se produce un cambio en el campo de texto .
+// para acceder al valor del campo de entrada e.target.value
   const handleTextChange = (e) => {
     dispatch(setFilters({ ...filters, title: e.target.value, page: 1 }));
   };
