@@ -1,4 +1,3 @@
-//sprint 3 --->
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { api, apiUrl, endpoints } from "../../utils/api";
@@ -11,13 +10,13 @@ import {
 import { Link } from "react-router-dom";
 import { LS } from '../../utils/localStorageUtils';
 const Mangas = () => {
-  //hook useDispatch p/ obtener la funci贸n dispatch, despachar acciones de Redux en componentes.
+  //hook useDispatch p/ obtener la función dispatch, despachar acciones de Redux en componentes.
   const dispatch = useDispatch();
   const { filters, categories, mangas, pagination } = useSelector(
     (state) => state.mangas 
   );
-  //desestructuraci贸n del objeto devuelto por useSelector
-  //useSelector, est谩s seleccionando y extrayendo las propiedades espec铆ficas 
+  //desestructuración del objeto devuelto por useSelector
+  //useSelector, estás seleccionando y extrayendo las propiedades específicas 
   //(filters, categories, mangas y pagination) del estado de Redux (state.mangas)
 
   const { title, categoriesSelected, page } = filters;
@@ -40,14 +39,13 @@ const Mangas = () => {
     try {
       const { data } = await api.get(apiUrl + endpoints.read_categories,
        );
-      dispatch(setCategories(data.response));
-      console.log(data);
+      dispatch(setCategories(data.categories));
     } catch (error) {
       console.log(error);
     }
   };
-//actualiza las categor铆as seleccionadas en los filtros y
-// despacha una acci贸n para actualizar el estado de Redux con los nuevos filtros
+//actualiza las categorías seleccionadas en los filtros y
+// despacha una acción para actualizar el estado de Redux con los nuevos filtros
   const selectCategory = (value) => {
     console.log(categoriesSelected);
     console.log(value);
@@ -72,21 +70,21 @@ const Mangas = () => {
     getCategories();
   }, [title, categoriesSelected, page]);
 
-//se ejecuta producido un clic en un bot贸n para ir a la p谩gina anterior
+//se ejecuta producido un clic en un botón para ir a la página anterior
 //Verifica si la propiedad prev tiene un valor, si es asi despacha la accion setFilters
   const handlePrevPage = () => {
     if (prev) {
       dispatch(setFilters({ ...filters, page: prev }));
     }
   };
-//se ejecuta producido un clic en un bot贸n para ir a la p谩gina siguiente.
+//se ejecuta producido un clic en un botón para ir a la página siguiente.
 //Verifica si la propiedad next tiene un valor, si es asi despacha la accion setFilters
   const handleNextPage = () => {
     if (next) {
       dispatch(setFilters({ ...filters, page: next }));
     }
   };
-// Esta funci贸n se ejecuta cuando se produce un cambio en el campo de texto .
+// Esta función se ejecuta cuando se produce un cambio en el campo de texto .
 // para acceder al valor del campo de entrada e.target.value
   const handleTextChange = (e) => {
     dispatch(setFilters({ ...filters, title: e.target.value, page: 1 }));
@@ -95,7 +93,7 @@ const Mangas = () => {
   return (
     <div className="flex flex-col items-center flex-wrap m-[0px] min-h-screen w-screen items-center justify-center">
       <div className="flex flex-wrap gap-[70px] min-h-[40vh] justify-center items-center flex-col w-[100%]">
-        <h1 className="text-white flex-wrap text-[20px] md:text-[40px] font-semibold sm:ml-[12.5rem] sm:self-start">Search your next manga 馃い</h1>
+        <h1 className="text-white flex-wrap text-[20px] md:text-[40px] font-semibold sm:ml-[12.5rem] sm:self-start">Search your next manga 🤤</h1>
         <input
           value={title}
           onChange={handleTextChange}
@@ -109,7 +107,7 @@ const Mangas = () => {
       <div className="flex w-[100%] ">
       <div className="flex text-white w-[10vw] flex-col  gap-5 ">
         <p className="text[16px]">Categories</p>
-        {categories?.map((category) => (
+        {categories.map((category) => (
           <button
             key={category._id}
             onClick={() => selectCategory(category?._id)}
@@ -117,14 +115,14 @@ const Mangas = () => {
               categoriesSelected.includes(category?._id) ? "text-white" : "text-white/50"
             }`}
           >
-            {category.name}
+            {category?.name}
           </button>
         ))}
       </div>
       <div className="flex flex-col">
       <div className=" flex gap-4 flex-row flex-wrap justify-center pl-[4rem]">
         {mangas?.length > 0 ? (
-          mangas?.map((manga, index) => (
+          mangas.map((manga, index) => (
             <div
               key={manga._id}
               className={`flex md:h-[23rem] rounded-[10px] justify-center
@@ -176,4 +174,4 @@ const Mangas = () => {
   );
 };
 
-export default Mangas
+export default Mangas;

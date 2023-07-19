@@ -14,6 +14,7 @@ import MangaDetail from "../src/componentes/MangaDetail";
 import Chapters from "../src/componentes/Chapters";
 import EditChapter from "../src/componentes/EditChapter";
 import ProtectedEdit from "../router/ProtectedEditChapter"
+import MyMangas from "../src/componentes/MyMangas";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
                 path:"/mangas",
                 element: <Mangas/>
               } , 
+              {
+                path:"/mymangas",
+                element: <MyMangas/>
+              },
               {
                 path:"/manga/:id",
                 element:(<ProtectedLoger><MangaDetail/></ProtectedLoger>),

@@ -90,7 +90,7 @@ const MangaForm = () => {
                 onChange={handleOptionChange}
                 className="sm:w-[20rem]  bg-transparent border-b-[1px] py-2 text-[white]"
               >
-                {categories.map((option) => (
+                {categories?.map((option) => (
                   <option key={option._id} value={option._id}>
                     {option.name}
                   </option>
