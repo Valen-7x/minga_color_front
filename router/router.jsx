@@ -7,13 +7,13 @@ import NotAllowed from "../src/componentes/NotAllowed";
 import NotAllowedProtected from "./NotAllowedProtected";
 import ChapterForm from "../src/componentes/ChapterForm";
 import MangaForm from "../src/componentes/MangaForm";
-
 import Mangas from "../src/componentes/mangas";
 import ProtectedLogin from "./ProtectedLogin";
 import ProtectedLoger from "./ProtectedLoger";
 import MangaDetail from "../src/componentes/MangaDetail";
 import Chapters from "../src/componentes/Chapters";
-
+import EditChapter from "../src/componentes/EditChapter";
+import ProtectedEdit from "../router/ProtectedEditChapter"
 const router = createBrowserRouter([
     {
         path:"/",
@@ -23,28 +23,19 @@ const router = createBrowserRouter([
                 path:'/',
                 element: <App/>
             },
-            {
-                path: "/Mangas",
-                element: <Manga/>
-              },
+            
               {
                 path:"/:manga_id/chapther-form",
                 element: (<NotAllowedProtected><ChapterForm/></NotAllowedProtected>),
               },
               {
-                 path:"/mangaForm",
+                 path:"/mangasForm",
                  element: (<NotAllowedProtected><MangaForm/></NotAllowedProtected>),
               },
               {
-
-                path:"/manga",
+                path:"/mangas",
                 element: <Mangas/>
-              }  
-        ]
-
-                path:"/not-allow",
-                element:<NotAllowed/>
-              },
+              } , 
               {
                 path:"/manga/:id",
                 element:(<ProtectedLoger><MangaDetail/></ProtectedLoger>),
@@ -52,13 +43,19 @@ const router = createBrowserRouter([
               {
                 path:"/chapters/:id/:page",
                 element:(<ProtectedLoger><Chapters/></ProtectedLoger>),
+              },
+              {
+                path:"/edit/:id_manga",
+                element:(<ProtectedEdit><EditChapter/></ProtectedEdit>)
               }
               
-]
-
-    },
-          
-        {
+        ],
+      },
+              {  
+              path:"/not-allow",
+                element:<NotAllowed/>
+              },
+            {
             path:'/signup',
             element: <SignUp/>
         },

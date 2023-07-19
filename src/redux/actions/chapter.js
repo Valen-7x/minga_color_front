@@ -6,10 +6,7 @@ const chapters_manga = createAction(
     return {
      payload: {
         chapters:objeto.chapters,
-            prev: objeto.prev,
-            next: objeto.next,
-            currentPage:objeto.currentPage
-     } 
+        } 
     }
     }
     )

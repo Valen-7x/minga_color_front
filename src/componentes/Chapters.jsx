@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 export default function Chapters() {
   const { id, page } = useParams();
   const chapters = useSelector((store) => store.chapters.chapters);
-
-  const manga = useSelector((store) => store.manga.manga);
-  const dispatch = useDispatch();
+  console.log(chapters);
+const manga = useSelector((store) => store.manga.manga);
+const dispatch = useDispatch();
 
   let token = JSON.parse(localStorage.getItem("token"));
   let headers = {
@@ -25,7 +25,7 @@ export default function Chapters() {
       .then((res) => dispatch(mangaActions.datos_manga(res.data.response)))
       .catch((err) => console.log(err));
   }
-
+  
   function getChapters() {
     axios
       .get(`http://localhost:8000/api/chapters/?manga_id=${id}&page=${page}`, headers)
@@ -33,9 +33,6 @@ export default function Chapters() {
         dispatch(
           chapterActions.chapters_manga({
             chapters: res.data.chapters,
-            prev: res.data.prev,
-            next: res.data.next,
-            currentPage: res.data.currentPage,
           })
         );
       })
@@ -65,21 +62,7 @@ export default function Chapters() {
       >
         <p className='text-[white] bg-[#808080a4] p-2 rounded-[5px]'>Chapters of</p>
         <p className='font-bold text-[2rem] text-[white] bg-[#808080a4] p-2 rounded-[5px]'>{manga?.title}</p>
-        <label
-          htmlFor='search2'
-          className='hidden lg:w-[30%] lg:h-[5.5vh] lg:flex bg-[#131212c9] lg:py-[0.5rem] lg:rounded-[5px] lg:justify-around lg:border-solid lg:border-[2px] lg:border-[#ffffff42]'
-        >
-          <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 37 37' fill='none'>
-            <circle cx='16.9582' cy='16.9582' r='10.7917' stroke='white' strokeWidth='2' />
-            <path d='M30.8335 30.8335L26.2085 26.2085' stroke='white' strokeWidth='2' strokeLinecap='round' />
-          </svg>
-          <input
-            type='text'
-            id='search2'
-            className='bg-[#131212c9] w-[85%] text-center placeholder:text-[#ffffff4f]'
-            placeholder='Search chapter'
-          />
-        </label>
+        
       </div>
       <div className='gap-8 py-[2rem] flex sm:flex-wrap sm:gap-5 sm:py-[3rem] md:px-[8rem] sm:px-[8rem] sm:flex-row lg:h-auto lg:gap-[8rem] sm:justify-center lg:py-[3rem] flex-nowrap flex-col '>
       {chapters.map((chapter) => (

@@ -29,9 +29,7 @@ function getManga(){
     .catch((err) => console.log(err));
 }
 useEffect(() => {
-    if(manga == null){
-    getManga()
-    }
+ getManga()
 }, []);
 
 return (

@@ -4,9 +4,6 @@ import chapterActions from "../actions/chapter";
 const {chapters_manga } = chapterActions;
 const initialState = {
 chapters: [], // Array para almacenar los capítulos del manga
-  prev: null,
-  next: null,
-  currentPage: 1,
 };
 const chapterReducer = createReducer(initialState, (builder) => {
     builder
@@ -14,11 +11,8 @@ const chapterReducer = createReducer(initialState, (builder) => {
         (state, action)=>{
         let newState = {
         ...state,
-
-        chapters:action.payload.chapters,
-        prev: action.payload.prev,
-        next: action.payload.next,
-        currentPage:action.payload.currentPage
+ chapters:action.payload.chapters,
+       
     };
     return newState
 })

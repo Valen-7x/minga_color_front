@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mangasReducer from "../redux/reducers/mangas.js";
-import authReducer from "./reducers/auth.js";
-import mangaReducer from "./reducers/manga";
-import chapterReducer from "./reducers/chapter"
+import mangasReducer from "../redux/reducers/mangas.js"
+import authReducer from "../redux/reducers/auth.js";
+import mangaReducer from "../redux/reducers/manga.js";
+import chapterReducer from "../redux/reducers/chapter.js"
 
 export const store = configureStore({
   reducer: {

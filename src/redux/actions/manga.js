@@ -10,8 +10,6 @@ return {
 }
 )
 
-// el objetivo de la accion es enviar informacion al reductor. 
-// AQUI se realiza TODA la logica necesaria para modificar/reducir los estados globales.
 
 const mangaActions = { datos_manga}
 export default mangaActions

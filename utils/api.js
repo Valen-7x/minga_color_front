@@ -8,7 +8,6 @@ export const endpoints = {
   read_categories: "categories",
   read_mangas: "mangas",
   signout: "users/signout",
-  ChapterForm: "chapters/",
+  ChapterForm: "chapters",
   MangaForm: "mangas/mangaC",
 };
-
