@@ -6,6 +6,7 @@ import './index.css'
 import router from '../router/router.jsx'
 import { store } from './redux/store'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <RouterProvider router={router}/>

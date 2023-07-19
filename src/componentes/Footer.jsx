@@ -1,3 +1,4 @@
+import { Link as Anchor} from "react-router-dom";
 export default function Footer() {
   return (
     <footer className=" h-[30vh] w-screen flex flex-col items-center bg-black sm:h-[35vh]">
@@ -6,10 +7,10 @@ export default function Footer() {
     </div>
     <div className="h-[30vh] sm-[]  flex flex-col items-center justify-around w-screen mt-2">
     <div className="flex justify-center gap-8">
-        <p className="text-white">Home</p>
-        <p className="text-white">Mangas</p>
+        <Anchor to={'/'} className="text-white">Home</Anchor>
+        <Anchor to={'/mangas'} className="text-white">Mangas</Anchor>
       </div>
-      <img className="w-[3.5rem]" src="public\Logo 2 1.png" alt="logo"/>
+      <img className="w-[3.5rem]" src="/public/Logo 2 1.png" alt="logo"/>
      <div className="flex justify-center gap-5 w-[50%]">
       <div className="w-[50%] bg-white h-6 rounded-[4px]">
        <p className="">Donate</p>
