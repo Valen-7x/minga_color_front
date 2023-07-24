@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 export default function EditChapter() {
 
@@ -32,6 +32,8 @@ export default function EditChapter() {
         <img className=' w-[70%] h-[55vh]' src={''} alt="" />
     </div>
     </div> 
+    
     </div>
+    
   );
 }

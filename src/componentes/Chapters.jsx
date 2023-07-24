@@ -51,7 +51,7 @@ const dispatch = useDispatch();
 
   const nextPage = Number(page) + 1;
   const prevPage = Number(page) - 1;
-  const isLastPageWithChapters = chapters.length === 0 && nextPage > 1;
+  const isLastPageWithChapters = chapters === 0 && nextPage > 1;
   const isPageTwo = Number(page) === 2;
 
   return (
@@ -65,7 +65,7 @@ const dispatch = useDispatch();
         
       </div>
       <div className='gap-8 py-[2rem] flex sm:flex-wrap sm:gap-5 sm:py-[3rem] md:px-[8rem] sm:px-[8rem] sm:flex-row lg:h-auto lg:gap-[8rem] sm:justify-center lg:py-[3rem] flex-nowrap flex-col '>
-      {chapters.map((chapter) => (
+      {chapters?.map((chapter) => (
   <div key={chapter.id}>
     <p className="text-white">{chapter?.title}</p>
     <div className="hover:border-[#563fbd] hover:border-4">

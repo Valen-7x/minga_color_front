@@ -25,6 +25,21 @@ const delete_mangas = createAsyncThunk(
         }
     }
 )
+export const update_mangas = createAsyncThunk(
+    'update_mangas',
+    async (mangaData) => {
+      try {
+        const { data } = await axios.put(
+          `http://localhost:8000/api/mangas/${mangaData._id}`,
+          mangaData
+        );
+        return data.manga; // Devuelve el manga actualizado desde la respuesta de la API
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
+  );
 
-const mangaActions = { read_mangas, delete_mangas }
+const mangaActions = { read_mangas, delete_mangas, update_mangas }
 export default mangaActions
