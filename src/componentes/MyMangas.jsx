@@ -294,7 +294,7 @@ const Mangas = () => {
         <Modal
           estado={estadoModal1}
           cambiarEstado={cambiarEstadoModal1}
-          titulo=""
+          titulo="Edit Manga"
           mostrarHeader={true}
           mostrarOverlay={true}
           posicionModal={"center"}
