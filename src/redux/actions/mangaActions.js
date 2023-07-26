@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
-const read_mangas = createAsyncThunk(
+const read_mangas = createAsyncThunk(//nos permite funciones en lugar de objetos y esto acciones funciones async
     'read_mangas',async (title) => {
         console.log(title)
         try {

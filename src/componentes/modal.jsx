@@ -1,13 +1,13 @@
 import React from "react";
 
 const Modal = ({
-  children,
-  estado,
+  children,//representa el contenido que se mostrará dentro del modal
+  estado, //controla cuando se muestra el modal, true o false
   cambiarEstado,
   titulo = "Alerta",
-  mostrarHeader,
-  mostrarOverlay,
-  posicionModal,
+  mostrarHeader,//prop boolena, true debe mostrar encabezado
+  mostrarOverlay,//prop booleana, true se mostrara semitransparente negro por detras el modal, false (fondo transparente)
+  posicionModal,//prop, posicion vertical del modal en la pantalla
   padding,
 }) => {
   return (
