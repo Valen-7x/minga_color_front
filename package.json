@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.12",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "chai": "^4.3.7",
     "join": "^3.0.0",
     "mongoose": "^7.3.2",
     "react": "^18.2.0",

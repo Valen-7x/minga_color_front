@@ -15,6 +15,7 @@ import Chapters from "../src/componentes/Chapters";
 import EditChapter from "../src/componentes/EditChapter";
 import ProtectedEdit from "../router/ProtectedEditChapter"
 import MyMangas from "../src/componentes/MyMangas";
+import DonationForm from "../src/componentes/product/DonationForm";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             element: (<ProtectedLogin><SignIn /></ProtectedLogin>),
         
           },
+          {
+            path:"/donation",
+            element: <DonationForm/>,
+          }
           
 ])
 export default router

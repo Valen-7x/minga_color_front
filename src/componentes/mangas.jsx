@@ -130,7 +130,7 @@ const Mangas = () => {
             >
               <Link to={`/manga/${manga._id}`}>
                 <img
-                  className="inline-flex flex-wrap h-[6rem] w-[6rem] md:h-[20rem] md:w-[15rem]"
+                  className="inline-flex flex-wrap h-[6rem] w-[6rem] md:h-[17rem] md:w-[12rem]"
                   src={manga?.cover_photo}
                   alt=""
                 />
@@ -147,24 +147,28 @@ const Mangas = () => {
         )}
       </div>
       <div className="flex flex-wrap justify-center mt-4">
-        <button
-          onClick={handlePrevPage}
-          disabled={!prev}
-          className={`px-4 py-2 mr-2 mt-[2rem] mb-[1rem] ${
-            !prev ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
-          }`}
-        >
-          Prev
-        </button>
-        <button
-          onClick={handleNextPage}
-          disabled={!next}
-          className={`px-4 py-2 mt-[2rem] mb-[1rem] ${
-            !next ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
-          }`}
-        >
-          Next
-        </button>
+            <button
+              onClick={handlePrevPage}
+              disabled={!prev}
+              className={`rounded-md px-4 py-2 mr-2 mt-[2rem] mb-[1rem] ${
+                !prev
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-700 border-rounded"
+              }`}
+            >
+              Prev
+            </button>
+            <button
+              onClick={handleNextPage}
+              disabled={!next}
+              className={`rounded-md px-4 py-2 mt-[2rem] mb-[1rem] ${
+                !next
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-700"
+              }`}
+            >
+              Next
+            </button>
       </div>
       </div>
       

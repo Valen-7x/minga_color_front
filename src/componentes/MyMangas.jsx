@@ -168,7 +168,7 @@ const Mangas = () => {
           <div className=" flex gap-4 flex-row flex-wrap justify-center pl-[4rem]">
             <Link
               to={`/mangasForm`}
-              className="inline-flex flex-wrap bg-gray-700 h-[6rem] w-[6rem] md:h-[20rem] md:w-[15rem]"
+              className="inline-flex flex-wrap bg-gray-700 h-[6rem] w-[6rem] md:h-[17rem] md:w-[14rem]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +194,7 @@ const Mangas = () => {
                 >
                   <Link to={`/manga/${manga._id}`}>
                     <img
-                      className="inline-flex flex-wrap h-[6rem] w-[6rem] md:h-[17rem] md:w-[15rem]"
+                      className="inline-flex flex-wrap h-[6rem] w-[6rem] md:h-[17rem] md:w-[14rem]"
                       src={manga?.cover_photo}
                       alt=""
                     />
@@ -294,14 +294,14 @@ const Mangas = () => {
         <Modal
           estado={estadoModal1}
           cambiarEstado={cambiarEstadoModal1}
-          titulo=""
+          titulo="Edit Manga"
           mostrarHeader={true}
           mostrarOverlay={true}
           posicionModal={"center"}
           padding={"p-5"}
         >
           <div className="text-center">
-            <h1 className="text-2xl font-medium text-black-600">Edit Manga</h1>
+            <h1 className="text-2xl font-medium text-black-600"></h1>
             <p className="text-lg my-4"></p>
             <form
               className="flex flex-col items-center"
