@@ -99,8 +99,8 @@ function NavBar() {
 
         
         <div className='text-[0.8rem] sm:text-[1.2rem] sm:mt-[2.5rem] flex flex-col justify-around h-[40vh] items-start px-[1rem] text-[#FFF] lg:text-[1.5rem]'>
-          <div className='flex flex-col gap-3 mb-4'>
-            {token && <img src={photoUser} alt="photo_user" className='w-[25px] '/>}
+          <div className='flex flex-col gap-3 mb-4 py-[2rem]'>
+            {token && <img src={`http://localhost:8000/${photoUser}`} alt="photo_user" className='w-[70px] mt-[5rem] '/>}
             {token && <p>{userEmail}</p>}
             
           </div>
@@ -109,11 +109,9 @@ function NavBar() {
           {!token && <Anchor to="/signup" className='hover:bg-black/50 p-2'>Register</Anchor>}
           {token && <Anchor to="/mangas" className='hover:bg-black/50 p-2'>Mangas</Anchor>}
           {token && <Anchor to="/mymangas" className='hover:bg-black/50 p-2'>My Mangas</Anchor>}
-          {token && <Anchor className='hover:bg-black/50 p-2'>Favourites</Anchor>}
           {token && <Anchor to="/edit/:id_manga" className='hover:bg-black/50 p-2'>Edit Chapters</Anchor>}
           {token && <Anchor to="/:manga_id/chapther-form" className='hover:bg-black/50 p-2'>New Chapters</Anchor>}
           {token && <Anchor to="/mangasForm" className='hover:bg-black/50 p-2'>New Manga</Anchor>}
-
           {token && <Anchor onClick={logout} className='hover:bg-black/50 p-2'>Log Out </Anchor>}
           </div>
       </div>

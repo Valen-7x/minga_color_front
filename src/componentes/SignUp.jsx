@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { api, apiUrl, endpoints } from "../../utils/api.js";
+
 import { Link as Anchor, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -8,24 +8,24 @@ export default function SignUp() {
   let navigate = useNavigate();
 
   const email = useRef();
-  const photo = useRef();
+  const photoInputRef = useRef(); // Corregir el nombre de la referencia a photoInputRef
   const password = useRef();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     let inputEmail = email.current.value;
-    let inputPhoto = photo.current.value;
     let inputPassword = password.current.value;
+    let inputPhoto = photoInputRef.current.files[0]; // Usar photoInputRef
 
-    let data = {
-      email: inputEmail,
-      photo: inputPhoto,
-      password: inputPassword,
-    };
-    console.log(data);
+    const formData = new FormData();
+    formData.append("email", inputEmail);
+    formData.append("password", inputPassword);
+    formData.append("photo", inputPhoto);
+
+console.log(formData);
 
     axios
-      .post("http://localhost:8000/api/users/register", data)
+      .post("http://localhost:8000/api/users/register", formData)
       .then((res) => {
         console.log(res);
         Swal.fire({
@@ -47,6 +47,7 @@ export default function SignUp() {
         console.log(err.message);
       });
   };
+
   return (
     <div>
       <nav></nav>
@@ -83,6 +84,7 @@ export default function SignUp() {
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none"
                 id="email"
                 required
+                name="email"
                 type="email"
                 placeholder="Email"
               />
@@ -95,11 +97,12 @@ export default function SignUp() {
                 Photo
               </label>
               <input
-                ref={photo}
+                ref={photoInputRef}
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none "
                 id="photo"
                 required
-                type="text"
+                name="photo"
+                type="file"
                 placeholder="Url"
               />
             </div>
@@ -115,6 +118,7 @@ export default function SignUp() {
                 className="border-b-2 w-full  text-gray-700 leading-tight focus:outline-none "
                 required
                 id="password"
+                name="password"
                 type="password"
                 placeholder="Password"
               />

@@ -40,7 +40,7 @@ return (
     <div className='lg:w-[50%] lg:h-[90vh] flex  justify-center items-center '>
         <div className='w-[30rem] h-[40vh] flex flex-col  px-[1.5rem]'>
         <div className='w-[100%] h-[10vh] flex justify-between items-center'>
-            <p className='text-[#ffffff93] text-[0.8rem] '>{manga?.category_id.name}</p>
+            <p className='text-[#ffffff93] text-[0.8rem] '>{manga?.category_id?.name}</p>
             <div className='flex items-center w-[7rem] justify-around'>
             <img className=' w-[1.5rem] h-[1.5rem]' src={manga?.author_id.photo} alt="photo-profile" />
             <p className='text-[#ffffff93] text-[0.8rem]'>{manga?.author_id.name}</p>
